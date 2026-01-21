@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Header';
 import MessageBubble from './components/MessageBubble';
 import SubjectSelector from './components/SubjectSelector';
@@ -320,6 +321,7 @@ const App: React.FC = () => {
           </button>
         </div>
       </nav>
+      <SpeedInsights />
     </div>
   );
 };
