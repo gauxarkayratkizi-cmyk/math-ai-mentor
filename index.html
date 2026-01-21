@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathAI Mentor - Кеңістік пен Сандар</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-vibrant: #4f46e5;
+            --secondary: #0ea5e9;
+            --accent: #f43f5e;
+            --bg-canvas: #f8fafc;
+            /* Төл әріптер ерекшеленбеуі үшін Unbounded немесе Montserrat қолданамыз */
+            --font-title: 'Unbounded', 'Montserrat', sans-serif;
+            --font-main: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main) !important;
+            background-color: var(--bg-canvas);
+            color: #0f172a;
+            overflow-x: hidden;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Төл әріптердің дизайны негізгі мәтінмен бірдей болуы үшін */
+        .premium-title {
+            font-family: var(--font-title) !important;
+            letter-spacing: -0.03em;
+        }
+
+        /* Deep Mesh Gradient */
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.06) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.04) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
+        }
+
+        .blob {
+            position: fixed;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.4;
+            pointer-events: none;
+            animation: float-slow 25s infinite ease-in-out;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            top: -200px;
+            right: -100px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #0ea5e9, #10b981);
+            bottom: -150px;
+            left: -100px;
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(40px, -60px) rotate(3deg); }
+            66% { transform: translate(-40px, 40px) rotate(-3deg); }
+        }
+
+        .kz-text {
+            word-break: break-word;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+
+        .glass-container {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "katex": "https://esm.sh/katex@0.16.9"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="mesh-gradient"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2" style="animation-delay: -12s;"></div>
+    <div id="root"></div>
+</body>
+</html>
